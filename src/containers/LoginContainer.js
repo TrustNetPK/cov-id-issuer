@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Container } from 'reactstrap';
 
 function LoginContainer(props) {
 	
