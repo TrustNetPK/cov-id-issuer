@@ -1,11 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
-import PreLoaderComponent from '../components/PreLoaderComponent'
 import HeaderComponent from '../components/HeaderComponent'
 import FooterComponent from '../components/FooterComponent'
 import IssuerContainer from '../containers/IssuerContainer'
+import QRContainer from '../containers/QRContainer'
+import MainContainer from '../containers/MainContainer'
 import LoginContainer from '../containers/LoginContainer'
+import VaccinationContainer from '../containers/VaccinationContainer'
 
 function PublicRoutes() {
 	return (
@@ -13,8 +14,21 @@ function PublicRoutes() {
 			<div>
 				<HeaderComponent />
 				<Switch>
-					<Route exact path="/login" component={LoginContainer} />
-					<Route exact path="/issue" component={IssuerContainer} />
+					<Route path="/login">
+						<LoginContainer />
+					</Route>
+					<Route path="/issuer">
+						<IssuerContainer />
+					</Route>
+					<Route path="/qrcode">
+						<QRContainer />
+					</Route>
+					<Route path="/vaccination">
+						<VaccinationContainer />
+					</Route>
+					<Route path="/">
+						<MainContainer />
+					</Route>
 				</Switch>
 				<FooterComponent />
 			</div>
