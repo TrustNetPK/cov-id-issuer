@@ -15,11 +15,13 @@ const PrivateRoute = ({ component, ...options }) => {
   };
 
 function Routes() {
+	console.log('Run')
 	return (
 		<Router>
 			<div>
-			<HeaderComponent />
+				<Route component={HeaderComponent}/>
 			<Switch>
+				
 					<PrivateRoute path="/qrcode" component={QRContainer} />
 					<PrivateRoute path="/vaccination" component={VaccinationContainer} />
 					<Route path="/noauth" component={NoAuthContainer} />

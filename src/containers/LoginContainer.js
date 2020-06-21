@@ -6,11 +6,11 @@ function LoginContainer(props) {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const handleSubmit = async () => {
+	const handleSubmit = () => {
 		console.log(email,password)
 		if (email === 'admin@vaccify.pk' && password === 'admin123') 
 		{
-			await Auth.authenticate();
+			Auth.authenticate();
 			props.history.replace('/vaccination')
 		}
 		else {
