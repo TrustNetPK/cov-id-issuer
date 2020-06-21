@@ -1,12 +1,12 @@
 import React from 'react';
 import { Jumbotron, Button, Container } from 'reactstrap';
 
-const JumbotronComponent = (props) => {
+const JumbotronComponent = () => {
   return (
     <div>
       <Jumbotron fluid>
           <Container fluid className="pt-2 pl-5 pr-5">
-        <h1 className="display-3">An Immunised World!</h1>
+        <h1 className="display-3 text-break">An Immunised World!</h1>
         <p className="lead">This is what we believe at Vaccify.
         </p>
         <p className="lead">

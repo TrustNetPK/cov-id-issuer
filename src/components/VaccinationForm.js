@@ -2,6 +2,11 @@ import React from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const VaccinationForm = (props) => {
+
+  const handleRequest = () => {
+    props.history.push('/qrcode');
+  }
+
   return (
     <Form className="text-center">
         <h1 className="mb-5 pb-4 mt-2">Vaccination Certificate Form</h1>
@@ -46,7 +51,7 @@ const VaccinationForm = (props) => {
           </FormGroup>
         </Col>
       </Row>
-      <Button className="m-5">Request Certificate</Button>
+      <Button onClick={handleRequest} className="m-5">Request Certificate</Button>
     </Form>
   );
 }

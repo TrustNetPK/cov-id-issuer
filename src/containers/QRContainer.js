@@ -2,7 +2,7 @@ import React from 'react'
 import { Container,Button, Col } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 
-function QRContainer(props) {
+function QRContainer() {
 	return (
 		<Container className="text-center justify-content-center pt-5 mt-5">
 			<Col>

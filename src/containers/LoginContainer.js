@@ -1,15 +1,17 @@
 import React from 'react';
 import { Button, Form, FormGroup, Input, Container } from 'reactstrap';
+import Auth from '../helpers/Auth';
 
 function LoginContainer(props) {
-	
-	const handleSubmit = () => {
-		props.history.push('/issue')
+
+	const handleSubmit = async () => {
+		await Auth.authenticate();
+		props.history.replace('/vaccination')
 	}
 
 	return (
-		<Container className="d-flex pt-5">
-			<Form className="w-50 mx-auto mt-5 text-center pt-5">
+		<Container className="d-flex pt-5 mb-5">
+			<Form className="w-50 mx-auto mt-5 text-center ">
 				<h1>Please Sign in here</h1>
 				<FormGroup className="mt-2 pt-5">
 					<Input type="email" name="email" id="exampleEmail" placeholder="Please enter your email here" />
