@@ -14,7 +14,7 @@ function LoginContainer(props) {
 			props.history.replace('/vaccination')
 		}
 		else {
-			props.history.push('/noauth')
+			alert('Please login with given credentials')
 		}
 	}
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -12,6 +12,7 @@ import Auth from '../helpers/Auth'
 import {useHistory} from 'react-router-dom'
 
 const HeaderComponent = () => {
+  console.log(Auth.getAuth())
   const [isOpen, setIsOpen] = useState(false);
   const history = useHistory();
   const toggle = () => setIsOpen(!isOpen);
