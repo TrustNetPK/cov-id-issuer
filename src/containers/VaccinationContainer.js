@@ -2,9 +2,9 @@ import React from 'react';
 import { Container } from 'reactstrap';
 import VaccinationForm from '../components/VaccinationForm';
 
-function VaccinationContainer(props) {
+function VaccinationContainer() {
 	return (
-		<Container className="pt-5 mt-5">
+		<Container className="pt-5 mt-5 mb-5">
 			<VaccinationForm />
 		</Container>
 	);

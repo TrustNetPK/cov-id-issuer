@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PublicRoutes from './navigation/PublicRoutes';
+import Routes from './navigation/Routes';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <PublicRoutes />
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
 );
