@@ -1,4 +1,4 @@
-# COV-ID Issuer Demo
+# COV-ID Issuer Application
 A front-end application to issue COVID-19 vaccine digital verifiable credential for medical institutes.
 
 # How to run
