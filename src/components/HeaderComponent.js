@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button } from 'reactstrap';
 import { useHistory, useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
 import Auth from '../helpers/Auth';
 import useWindowDimensions from '../helpers/useWindowDimensions';
@@ -31,56 +30,31 @@ const HeaderComponent = () => {
   };
 
   return (
-    <div style={{ fontFamily: `'Poppins' sans-serif` }}>
+    <div>
       <Navbar
         color="light"
         light
-        expand="md"
+        expand="sm"
         fixed="top"
         style={{ boxShadow: '0 0px 50px rgba(0, 0, 0, 0.2)' }}>
-        <NavbarBrand
-          className="navbar-brand"
-          rel="noopener noreferrer"
-          href="https://hospitals.aku.edu/pakistan/Pages/default.aspx"
-          target="_blank">
-          {width > 810 ? (
-            <img src={AgaKhanLogo} alt="aga-khan-logo" style={{ width: '50vh' }} />
+        <NavbarBrand className="navbar-brand">
+          {width > 500 ? (
+            <img src={AgaKhanLogo} alt="aga-khan-logo" style={{ width: '220px' }} />
           ) : (
-            <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={{ width: '8vh' }} />
+            <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={{ width: '50px' }} />
           )}
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav navbar className="ml-auto">
             <NavItem>
-              <HashLink to="/home" className="nav-link">
-                Home
-              </HashLink>
-            </NavItem>
-            <NavItem>
-              <HashLink to="/about" className="nav-link">
-                About
-              </HashLink>
-            </NavItem>
-            <NavItem>
-              <HashLink to="/symptoms" className="nav-link">
-                Symptoms
-              </HashLink>
-            </NavItem>
-            <NavItem>
-              <HashLink to="/prevention" className="nav-link">
-                Prevention
-              </HashLink>
-            </NavItem>
-            <NavItem>
-              <HashLink to="/faq" className="nav-link">
-                FAQ
-              </HashLink>
-            </NavItem>
-            <NavItem>
-              <HashLink to="/news" className="nav-link mr-1">
-                News
-              </HashLink>
+              <a
+                rel="noopener noreferrer"
+                href="https://github.com/TrustNetPK"
+                target="_blank"
+                className="btn btn-dark text-white px-4 mr-4 my-3 my-sm-0">
+                GitHub
+              </a>
             </NavItem>
             {Auth.getAuth() ? (
               <NavItem>
