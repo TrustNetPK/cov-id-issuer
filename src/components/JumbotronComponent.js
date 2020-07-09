@@ -1,25 +1,33 @@
 import React from 'react';
-import { Jumbotron, Button, Container } from 'reactstrap';
+import { Button } from 'reactstrap';
+import bannerImg from '../assets/images/banner-img-1.png'
+import bg from '../assets/images/shape/shape-3.png';
+
+import './css/JumbotronComponent.css';
 
 const JumbotronComponent = () => {
   return (
-    <div>
-      <Jumbotron fluid>
-          <Container fluid className="pt-2 pl-5 pr-5">
-        <h1 className="display-3 text-break">An Immunised World!</h1>
-        <p className="lead">This is what we believe at Vaccify.
-        </p>
-        <p className="lead">
-        We enable you to hold digital verifiable immunity certificates in your mobile.</p>
-        <hr className="my-2" />
-        <p>Seems interesting? Are you with us?</p>
-        <p className="lead">
-          <Button color="primary">Learn More</Button>
-        </p>
-        </Container>
-      </Jumbotron>
-    </div>
+    <header>
+      <div class="container-fluid text-center">
+
+        <div class="row" style={{ backgroundImage: `url(${bg})` }}>
+          <div class="col-md-7 col-sm-12 ">
+            <h1>An Immunised World!</h1>
+            <p>
+              This is what we believe at Vaccify.
+            </p>
+            <p className="lead">
+              We enable you to hold digital verifiable immunity certificates in your mobile.</p>
+            <Button className="mt-2" outline color="danger" size="lg" >Learn More</Button>
+          </div>
+          <div class="col-md-5 col-sm-12  h-25">
+            <img src={bannerImg} alt="CovidPerson" />
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
+
 
 export default JumbotronComponent;
