@@ -25,7 +25,7 @@ function QRContainer(props) {
 	}
 
 	return (
-		<Container className="text-center justify-content-center pt-5 mt-5">
+		<Container fluid className="text-center justify-content-center pt-5 mt-5" style={{ backgroundColor: '#FCF8F7' }}>
 			<Col>
 				<QRComponent value={JSON.stringify(props.location.state)} />
 			</Col>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Label, Col, FormGroup, Form, InputGroup, Input, Container, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Auth from '../helpers/Auth';
-import './css/LoginContainer.css';
+import '../assets/styles/LoginContainer.css'
 
 import bg from '../assets/images/shape/shape-3.png';
 import animic1 from '../assets/images/icons/anim-icon-1.png';
@@ -28,7 +28,7 @@ function LoginContainer(props) {
 	}
 
 	return (
-		<div className="Root" style={{ backgroundImage: `url(${bg})` }}>
+		<div className="Root" style={{ backgroundColor: '#FCF8F7' }}>
 
 			<Container className="App" >
 				<div>

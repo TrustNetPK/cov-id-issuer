@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+
 * {
   box-sizing: border-box;
 }
@@ -20,23 +21,30 @@ header {
 
 
 header .row .col-md-7 {
-  padding: 22vmin 1vmin;
+  padding: 30vmin 1vmin;
   padding-bottom: 35vmin;
+  background-image: url(../images/icons/anim-icon-2.png);
+  background-repeat:no-repeat;
+
+
 }
 
 header .row .col-md-5 {
   padding: 4.2vmin 1vmin;
+ 
 }
 
 header .row .col-md-5 img {
   width: 90%;
+  background-image: url(../images/icons/anim-icon-1.png);
+  background-repeat:no-repeat;
 }
 
 header {
-
-   /* background: #ff512f; */
+  
+   /* background: #ff512f;  */
   /* fallback for old browsers */
-  /* background: var(--bggradient); */ 
+ /* background: var(--bggradient);  */
 }
 
 header .container .col-md-7 {

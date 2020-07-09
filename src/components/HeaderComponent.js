@@ -41,8 +41,8 @@ const HeaderComponent = () => {
           {width > 500 ? (
             <img src={AgaKhanLogo} alt="aga-khan-logo" style={{ width: '220px' }} />
           ) : (
-            <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={{ width: '50px' }} />
-          )}
+              <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={{ width: '50px' }} />
+            )}
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -59,16 +59,16 @@ const HeaderComponent = () => {
             {Auth.getAuth() ? (
               <NavItem>
                 <Button color="danger" className="px-4" onClick={handleLogout}>
-                  LogOut
+                  Log Out
                 </Button>
               </NavItem>
             ) : (
-              <NavItem>
-                <Button color="danger" className="px-4" onClick={handleLogin}>
-                  Login
+                <NavItem>
+                  <Button color="danger" className="px-4" onClick={handleLogin}>
+                    Login
                 </Button>
-              </NavItem>
-            )}
+                </NavItem>
+              )}
           </Nav>
         </Collapse>
       </Navbar>
