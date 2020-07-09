@@ -32,11 +32,9 @@ const HeaderComponent = () => {
   return (
     <div>
       <Navbar
-        color="light"
-        light
         expand="sm"
         fixed="top"
-        style={{ boxShadow: '0 0px 50px rgba(0, 0, 0, 0.2)' }}>
+        >
         <NavbarBrand className="navbar-brand">
           {width > 500 ? (
             <img src={AgaKhanLogo} alt="aga-khan-logo" style={{ width: '220px' }} />
@@ -52,19 +50,19 @@ const HeaderComponent = () => {
                 rel="noopener noreferrer"
                 href="https://github.com/TrustNetPK"
                 target="_blank"
-                className="btn btn-dark text-white px-4 mr-4 my-3 my-sm-0">
+                className="btn">
                 GitHub
               </a>
             </NavItem>
             {Auth.getAuth() ? (
               <NavItem>
-                <Button color="danger" className="px-4" onClick={handleLogout}>
+                <Button className="px-4" onClick={handleLogout}>
                   LogOut
                 </Button>
               </NavItem>
             ) : (
               <NavItem>
-                <Button color="danger" className="px-4" onClick={handleLogin}>
+                <Button className="px-4" onClick={handleLogin}>
                   Login
                 </Button>
               </NavItem>
