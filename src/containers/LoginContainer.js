@@ -73,7 +73,7 @@ function LoginContainer(props) {
 				</div>
 
 				<div>
-					<Modal isOpen={modal} toggle={toggle}>
+					<Modal isOpen={modal} toggle={toggle} centered>
 						<ModalHeader toggle={toggle}>Login Information</ModalHeader>
 						<ModalBody>Please Login with correct credentials.</ModalBody>
 						<ModalFooter>
