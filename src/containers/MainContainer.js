@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'reactstrap';
 import JumbotronComponent from '../components/JumbotronComponent';
 import bg from '../assets/images/shape/shape-3.png';
+
 function MainContainer() {
 	return (
 
@@ -12,5 +13,3 @@ function MainContainer() {
 }
 
 export default MainContainer;
-
-// backgroundImage: `url(${bg})`

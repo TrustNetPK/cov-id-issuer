@@ -3,7 +3,6 @@ import { Button, Label, Col, FormGroup, Form, InputGroup, Input, Container, Moda
 import Auth from '../helpers/Auth';
 import '../assets/styles/LoginContainer.css'
 
-import bg from '../assets/images/shape/shape-3.png';
 import animic1 from '../assets/images/icons/anim-icon-1.png';
 import animic2 from '../assets/images/icons/anim-icon-2.png';
 
@@ -23,7 +22,6 @@ function LoginContainer(props) {
 		}
 		else {
 			toggle();
-			//alert('Please login with given credentials')
 		}
 	}
 
@@ -35,7 +33,7 @@ function LoginContainer(props) {
 					<img src={animic1} alt="Animation" />
 				</div>
 				<Form className="form">
-					<h2 className="text-center">Login</h2>
+					<h2 className="text-center">Log In</h2>
 					<Col>
 						<FormGroup>
 							<Label className="mt-2">Email</Label>
