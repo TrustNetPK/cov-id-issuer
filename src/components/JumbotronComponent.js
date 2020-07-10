@@ -1,9 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import bannerImg from '../assets/images/banner-img-1.png'
-import bg from '../assets/images/shape/shape-3.png';
 import '../assets/styles/JumbotronComponent.css'
-// import './css/JumbotronComponent.css';
 
 const JumbotronComponent = () => {
   return (
@@ -18,7 +16,7 @@ const JumbotronComponent = () => {
             </p>
             <p className="lead">
               We enable you to hold digital verifiable immunity certificates in your mobile.</p>
-            <Button className="mt-2" outline color="danger" size="lg" >Learn More</Button>
+            <Button className="mt-2" outline color="danger" size="lg" onClick={()=> window.open("https://vaccify.pk", "_blank")} >Learn More</Button>
           </div>
           <div class="col-md-5 col-sm-12">
             <img src={bannerImg} alt="CovidPerson" />

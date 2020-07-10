@@ -65,7 +65,7 @@ const HeaderComponent = () => {
             ) : (
                 <NavItem>
                   <Button color="danger" className="px-4" onClick={handleLogin}>
-                    Login
+                    Log In
                 </Button>
                 </NavItem>
               )}

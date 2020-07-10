@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
+
 function QRContainer(props) {
 	const [modal, setModal] = useState(false);
 	const [show, setShow] = useState(false);
@@ -20,8 +21,6 @@ function QRContainer(props) {
 	}
 	const handleAuthorisation = () => {
 		toggle()
-		//alert('This certificate has been issued and authorised')
-
 	}
 
 	return (
