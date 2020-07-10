@@ -3,7 +3,7 @@ import { Container } from 'reactstrap'
 
 function FooterComponent() {
 	return (
-		<Container className="fixed-bottom text-center p-3 border-top">
+		<Container fluid className="fixed-bottom text-center p-3 border-top" style={{ backgroundColor: '#fff' }}>
 			© Copyrights Vaccify - All Rights Reserved
 		</Container>
 	)

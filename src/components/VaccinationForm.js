@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useHistory } from 'react-router-dom'
-import './css/VaccinationForm.css'
+import '../assets/styles/VaccinationForm.css'
 
 const VaccinationForm = () => {
   const [name, setName] = useState('')
