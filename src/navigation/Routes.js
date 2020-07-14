@@ -7,6 +7,7 @@ import MainContainer from '../containers/MainContainer'
 import LoginContainer from '../containers/LoginContainer'
 import VaccinationContainer from '../containers/VaccinationContainer'
 import NoAuthContainer from '../containers/NoAuthContainer'
+import ProofContainer from '../containers/ProofContainer'
 import Auth from '../helpers/Auth'
 
 const PrivateRoute = ({ component, ...options }) => {
@@ -21,7 +22,7 @@ function Routes() {
 			<div>
 				<Route component={HeaderComponent}/>
 			<Switch>
-				
+					<PrivateRoute path="/proof" component={ProofContainer} />
 					<PrivateRoute path="/qrcode" component={QRContainer} />
 					<PrivateRoute path="/vaccination" component={VaccinationContainer} />
 					<Route path="/noauth" component={NoAuthContainer} />

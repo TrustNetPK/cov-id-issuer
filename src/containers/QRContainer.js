@@ -20,7 +20,8 @@ function QRContainer(props) {
 		props.history.replace('/vaccination')
 	}
 	const handleAuthorisation = () => {
-		toggle()
+		// toggle()
+		props.history.replace('/proof', props.location.state)
 	}
 
 	return (
