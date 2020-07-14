@@ -6,7 +6,7 @@ export default function ProofForm(props) {
 
   return (
     <Col lg={5}>
-      <h5 className="mb-4 pb-4 mt-2 text-center">Patient Information</h5>
+      <h5 className="mb-4 pb-4 mt-2 text-center">Patient and Vaccination Information</h5>
       <FormGroup row>
         <Label for="name" sm={2}>
           Name

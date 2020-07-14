@@ -36,8 +36,8 @@ const HeaderComponent = () => {
         {width > 500 ? (
           <img src={AgaKhanLogo} alt="aga-khan-logo" style={globalStyles.navbarLogo} />
         ) : (
-          <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={globalStyles.navbarLogoMini} />
-        )}
+            <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={globalStyles.navbarLogoMini} />
+          )}
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
@@ -48,7 +48,7 @@ const HeaderComponent = () => {
               href="https://github.com/TrustNetPK"
               target="_blank"
               className="btn btn-dark text-white px-4 mr-4 my-3 my-sm-0">
-              GitHub
+              Github
             </a>
           </NavItem>
           {Auth.getAuth() ? (
@@ -58,12 +58,12 @@ const HeaderComponent = () => {
               </Button>
             </NavItem>
           ) : (
-            <NavItem>
-              <Button color="danger" className="px-4" onClick={handleLogin}>
-                Log In
+              <NavItem>
+                <Button color="danger" className="px-4" onClick={handleLogin}>
+                  Try Demo
               </Button>
-            </NavItem>
-          )}
+              </NavItem>
+            )}
         </Nav>
       </Collapse>
     </Navbar>
