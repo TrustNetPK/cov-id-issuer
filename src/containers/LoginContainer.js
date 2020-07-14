@@ -16,7 +16,7 @@ function LoginContainer(props) {
 
 	const handleSubmit = () => {
 		console.log(email, password)
-		if (email === 'admin@vaccify.pk' && password === 'admin123') {
+		if (email === 'issuer@vaccify.pk' && password === 'admin') {
 			Auth.authenticate();
 			props.history.replace('/vaccination')
 		}
@@ -34,6 +34,7 @@ function LoginContainer(props) {
 				</div>
 				<Form className="form">
 					<h2 className="text-center">Log In</h2>
+					<p className="text-center" style={{ color: '#808080', fontSize: '10px' }}>If you need access to Vaccify issuer demo, email us at <span style={{ color: '#800000' }}>support@trust.net.pk</span></p>
 					<Col>
 						<FormGroup>
 							<Label className="mt-2">Email</Label>
@@ -43,7 +44,7 @@ function LoginContainer(props) {
 									name="email"
 									id="Email"
 									onChange={(e) => setEmail(e.target.value)}
-									placeholder="myemail@email.com"
+									placeholder="username@vaccify.pk"
 								/>
 							</InputGroup>
 
@@ -57,14 +58,13 @@ function LoginContainer(props) {
 								name="password"
 								id="Password"
 								onChange={(e) => setPassword(e.target.value)}
-								placeholder="********"
+								placeholder="••••••••••••"
 							/>
 						</FormGroup>
 					</Col>
 					<div className="text-center ">
 						<Button className="mt-2" outline color="danger" size="lg" onClick={handleSubmit} >Submit</Button>
 					</div>
-
 				</Form>
 				<div>
 					<img src={animic2} alt="Animation" style={{ marginTop: '75px' }} />
@@ -80,7 +80,7 @@ function LoginContainer(props) {
 					</Modal>
 				</div>
 			</Container>
-		</div>
+		</div >
 	);
 
 

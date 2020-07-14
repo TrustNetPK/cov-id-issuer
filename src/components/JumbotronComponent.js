@@ -10,13 +10,13 @@ const JumbotronComponent = () => {
 
         <div class="row" >
           <div class="col-md-7 col-sm-12">
-            <h1>An Immunised World!</h1>
+            <h1>Issue Vaccination Certificates</h1>
             <p>
-              This is what we believe at Vaccify.
+              Vaccination certificates made reliable and easy.
             </p>
             <p className="lead">
-              We enable you to hold digital verifiable immunity certificates in your mobile.</p>
-            <Button className="mt-2" outline color="danger" size="lg" onClick={()=> window.open("https://vaccify.pk", "_blank")} >Learn More</Button>
+              This demo shows how an institution can issue a digital verifiable immunity certificates to a person.</p>
+            <Button className="mt-2" outline color="danger" size="lg" onClick={() => window.open("https://vaccify.pk", "_blank")} >Learn More</Button>
           </div>
           <div class="col-md-5 col-sm-12">
             <img src={bannerImg} alt="CovidPerson" />
