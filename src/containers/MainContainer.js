@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 import JumbotronComponent from '../components/JumbotronComponent';
+import bg from '../assets/images/shape/shape-3.png';
 
 function MainContainer() {
 	return (
-		<Container className="pt-5 mt-5 pb-5 mb-4">
+
+		< Container fluid style={{ backgroundColor: '#FCF8F7' }}>
 			<JumbotronComponent />
-		</Container>
+		</Container >
 	);
 }
 
