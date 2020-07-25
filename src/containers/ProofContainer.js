@@ -18,7 +18,7 @@ const ProofContainer = (props) => {
             Vaccination Certificate Has Been Issued Successfully
           </h4>
           <p className="ml-md-5 pb-4 mt-2">
-            The Aga Khan University Hospital has successfully issued a digital vaccination certificate. In order to test if this digital certificate can be verified by other authorities, visit Vaccify's vaccination verification demo.
+            The WeCare University Hospital has successfully issued a digital vaccination certificate. In order to test if this digital certificate can be verified by other authorities, visit Vaccify's vaccination verification demo.
           </p>
           <div className="text-center ">
             <Button className="mt-2" outline color="primary" size="lg" onClick={() => window.open("https://verifier.vaccify.pk", "_blank")} >Try Verifer Demo</Button>

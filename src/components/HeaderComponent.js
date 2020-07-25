@@ -5,8 +5,8 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { globalStyles } from '../assets/styles/globalStyles';
 import Auth from '../helpers/Auth';
 import useWindowDimensions from '../helpers/useWindowDimensions';
-import AgaKhanLogo from '../assets/images/aga-khan-transparent.png';
-import AgaKhanMiniLogo from '../assets/images/aga-khan-mini-transparent.png';
+import WeCareLogo from '../assets/images/wecare-transparent.png';
+import WeCareMiniLogo from '../assets/images/wecare-mini-transparent.png';
 
 const HeaderComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +34,9 @@ const HeaderComponent = () => {
     <Navbar color="light" light expand="sm" fixed="top" style={globalStyles.navbar}>
       <NavbarBrand className="navbar-brand">
         {width > 500 ? (
-          <img src={AgaKhanLogo} alt="aga-khan-logo" style={globalStyles.navbarLogo} />
+          <img src={WeCareLogo} alt="wecare-logo" style={globalStyles.navbarLogo} />
         ) : (
-            <img src={AgaKhanMiniLogo} alt="aga-khan-logo" style={globalStyles.navbarLogoMini} />
+            <img src={WeCareMiniLogo} alt="wecare-logo" style={globalStyles.navbarLogoMini} />
           )}
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
