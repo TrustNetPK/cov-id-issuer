@@ -1,5 +1,4 @@
 const Auth = {
-    
     authenticate() {
        localStorage.setItem('token','vaccify');
     },

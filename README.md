@@ -1,9 +1,13 @@
 # COV-ID Issuer Application
 A front-end application to issue COVID-19 vaccine digital verifiable credential for medical institutes.
 
+# Screenshots
+
+![visual](issuer-visual.png)
+
 # How to run
 ```
-git clone https://github.com/TrustNetPK/cov-id-issuer-demo.git
+git clone https://github.com/TrustNetPK/cov-id-issuer.git
 cd cov-id-issuer-demo
 npm install
 npm start
