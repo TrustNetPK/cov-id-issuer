@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spinner } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
 import { SCHEMA_ID } from '../config/constants'
@@ -10,11 +10,11 @@ function QRContainer(props) {
 	const [modal, setModal] = useState(false);
 	const [show, setShow] = useState(false);
 	const [showAuthButton, setAuthButton] = useState(false);
+	const [showLoader, setLoader] = useState(false)
 
 	useEffect(()=> getConnectionInfo(),[]);
 
 	function getConnectionInfo() {
-		console.log('Run', showAuthButton)
 		fetch(`/connections/${props.location.state.data.connection_id}`,
 			{
 				method: 'GET',
@@ -179,6 +179,7 @@ function QRContainer(props) {
 	}
 	const handleAuthorisation = () => {
 		// toggle()
+		setLoader(true);
 		getCredDefId();
 
 	}
@@ -190,9 +191,8 @@ function QRContainer(props) {
 					<QRComponent value={JSON.stringify(props.location.state)} />
 				</Col>
 				<Col className="mt-3">
-					{showAuthButton ?
-						<Button outline color="danger" onClick={handleAuthorisation}>Authorise Certificate</Button> : null
-					}
+					{showAuthButton && !showLoader ?
+						<Button outline color="danger" onClick={handleAuthorisation}>Authorise Certificate</Button> : showLoader? <Spinner/>:null}
 				</Col>
 
 				<div>
