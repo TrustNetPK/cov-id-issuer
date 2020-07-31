@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { ISSUER_HOST_URL } from '../config/endpoints';
 import { useHistory } from 'react-router-dom'
 import '../assets/styles/VaccinationForm.css'
 
@@ -41,32 +42,45 @@ const VaccinationForm = () => {
       // alert('Please fill all fields')
     }
     else {
-      history.push('/qrcode', {
-        firstname: firstname,
-        lastname: lastname,
-        gender: gender,
-        dob: dob,
-        nationality: nationality,
-        doctype: doctype,
-        docID: docID,
-        vacName: vacName,
-        manufacturer: manufacturer,
-        batch: batch,
-        dose: dose,
-        unit: unit,
-        validTill: validTill,
-        nextBoosterDate: nextBoosterDate,
-        vaccinatorName: vaccinatorName,
-        accreditor_cred_def_id: "(none)",
-        vaccinator_org_logo: "BASE_URL/logo.png",
-        vaccinator_org_type: "Hospital",
-        vaccinator_org_loc: "Lahore, Pakistan",
-        vaccinator_did: "(none)",
-        vaccinator_org: "WeCare University Hospital",
-        validate_from: new Date().toISOString().substring(0, 10),
-
-
-      });
+      fetch(`/connections/create-invitation`,
+        { method: 'POST', 
+          headers: { 
+            'X-API-Key': 'secret', 
+            'Content-Type': 'application/json; charset=utf-8',
+            'Server': 'Python/3.6 aiohttp/3.6.2'
+          }
+        }).then((
+          resp => resp.json().then((
+            data =>
+              history.push('/qrcode', {
+                firstname: firstname,
+                lastname: lastname,
+                gender: gender,
+                dob: dob,
+                data: data,
+                nationality: nationality,
+                doctype: doctype,
+                docID: docID,
+                vacName: vacName,
+                manufacturer: manufacturer,
+                batch: batch,
+                dose: dose,
+                unit: unit,
+                validTill: validTill,
+                nextBoosterDate: nextBoosterDate,
+                vaccinatorName: vaccinatorName,
+                accreditor_cred_def_id: "(none)",
+                vaccinator_org_logo: "BASE_URL/logo.png",
+                vaccinator_org_type: "Hospital",
+                vaccinator_org_loc: "Lahore, Pakistan",
+                vaccinator_did: "(none)",
+                vaccinator_org: "WeCare University Hospital",
+                validate_from: new Date().toISOString().substring(0, 10),
+              })
+            )
+          )
+        )
+      )
     }
   }
 

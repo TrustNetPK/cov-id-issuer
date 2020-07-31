@@ -1,0 +1,1 @@
+export const ISSUER_HOST_URL = 'http://localhost:3000';
