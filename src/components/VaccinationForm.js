@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { ISSUER_HOST_URL } from '../config/endpoints';
 import { useHistory } from 'react-router-dom'
+import randomString from '../helpers/RandomString'
 import '../assets/styles/VaccinationForm.css'
+import { API_SECRET } from '../config/constants'
 
 const VaccinationForm = () => {
   const [firstname, setFirstName] = useState('Ali')
@@ -11,7 +12,7 @@ const VaccinationForm = () => {
   const [dob, setDob] = useState('1990-02-21')
   const [nationality, setNationality] = useState('Pakistani')
   const [doctype, setDocType] = useState('Passport')
-  const [docID, setDocID] = useState('CV83831643')
+  const [docID, setDocID] = useState('CV-' + randomString(8).toUpperCase())
 
   const [vacName, setVacName] = useState('SARS-CoV2')
   const [manufacturer, setManufacturer] = useState('Moderna')
@@ -43,9 +44,10 @@ const VaccinationForm = () => {
     }
     else {
       fetch(`/connections/create-invitation`,
-        { method: 'POST', 
-          headers: { 
-            'X-API-Key': 'secret', 
+        {
+          method: 'POST',
+          headers: {
+            'X-API-Key': `${API_SECRET}`,
             'Content-Type': 'application/json; charset=utf-8',
             'Server': 'Python/3.6 aiohttp/3.6.2'
           }
@@ -77,10 +79,10 @@ const VaccinationForm = () => {
                 vaccinator_org: "WeCare University Hospital",
                 validate_from: new Date().toISOString().substring(0, 10),
               })
-            )
+          )
           )
         )
-      )
+        )
     }
   }
 

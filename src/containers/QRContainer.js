@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spinner } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
-import { SCHEMA_ID } from '../config/constants'
-import randomString from '../helpers/RandomString'
+import { SCHEMA_ID, API_SECRET } from '../config/constants'
 
 function QRContainer(props) {
 	console.log(props.location, 'Props')
@@ -12,22 +11,22 @@ function QRContainer(props) {
 	const [showAuthButton, setAuthButton] = useState(false);
 	const [showLoader, setLoader] = useState(false)
 
-	useEffect(()=> getConnectionInfo(),[]);
+	useEffect(() => getConnectionInfo(), []);
 
 	function getConnectionInfo() {
 		fetch(`/connections/${props.location.state.data.connection_id}`,
 			{
 				method: 'GET',
 				headers: {
-					'X-API-Key': 'secret',
+					'X-API-Key': `${API_SECRET}`,
 					'Content-Type': 'application/json; charset=utf-8',
 					'Server': 'Python/3.6 aiohttp/3.6.2'
 				}
 			}).then((
 				resp => resp.json().then((data => {
 					let intervalFunction;
-					console.log(data.state==='invitation','Data')
-					data.state === "invitation"? intervalFunction=setTimeout(getConnectionInfo,5000):clearIntervalFunction(intervalFunction);
+					console.log(data.state === 'invitation', 'Data')
+					data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, 5000) : clearIntervalFunction(intervalFunction);
 				}))))
 	}
 
@@ -41,16 +40,16 @@ function QRContainer(props) {
 			{
 				method: 'POST',
 				headers: {
-					'X-API-Key': 'secret',
+					'X-API-Key': `${API_SECRET}`,
 					'Content-Type': 'application/json; charset=utf-8',
 					'Server': 'Python/3.6 aiohttp/3.6.2'
 				},
 				body: JSON.stringify({
 					"support_revocation": false,
-					"tag": randomString(9),
+					"tag": props.location.state.docID,
 					"schema_id": `${SCHEMA_ID}`,
 				})
-			}).then(resp => resp.json().then((data=> issueCredential(data.credential_definition_id))))
+			}).then(resp => resp.json().then((data => issueCredential(data.credential_definition_id))))
 	}
 
 	function issueCredential(credential_definition_id) {
@@ -159,7 +158,7 @@ function QRContainer(props) {
 					}
 				}),
 				headers: {
-					'X-API-Key': 'secret',
+					'X-API-Key': `${API_SECRET}`,
 					'Content-Type': 'application/json; charset=utf-8',
 					'Server': 'Python/3.6 aiohttp/3.6.2'
 				}
@@ -192,7 +191,7 @@ function QRContainer(props) {
 				</Col>
 				<Col className="mt-3">
 					{showAuthButton && !showLoader ?
-						<Button outline color="danger" onClick={handleAuthorisation}>Authorise Certificate</Button> : showLoader? <Spinner/>:null}
+						<Button outline color="danger" onClick={handleAuthorisation}>Authorise Certificate</Button> : showLoader ? <Spinner /> : null}
 				</Col>
 
 				<div>
