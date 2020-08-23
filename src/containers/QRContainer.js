@@ -3,6 +3,7 @@ import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spi
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
 import { SCHEMA_ID, API_SECRET } from '../config/constants'
+import { ISSUER_HOST_URL } from '../config/endpoints'
 
 function QRContainer(props) {
 	console.log(props.location, 'Props')
@@ -14,7 +15,7 @@ function QRContainer(props) {
 	useEffect(() => getConnectionInfo(), []);
 
 	function getConnectionInfo() {
-		fetch(`/connections/${props.location.state.data.connection_id}`,
+		fetch(ISSUER_HOST_URL + `/connections/${props.location.state.data.connection_id}`,
 			{
 				method: 'GET',
 				headers: {
@@ -36,7 +37,7 @@ function QRContainer(props) {
 	}
 
 	function getCredDefId() {
-		fetch(`/credential-definitions`,
+		fetch(ISSUER_HOST_URL + `/credential-definitions`,
 			{
 				method: 'POST',
 				headers: {
@@ -53,7 +54,7 @@ function QRContainer(props) {
 	}
 
 	function issueCredential(credential_definition_id) {
-		fetch(`/issue-credential/send`,
+		fetch(ISSUER_HOST_URL + `/issue-credential/send`,
 			{
 				method: 'POST',
 				body: JSON.stringify({

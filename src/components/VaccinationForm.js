@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import randomString from '../helpers/RandomString'
 import '../assets/styles/VaccinationForm.css'
 import { API_SECRET } from '../config/constants'
+import { ISSUER_HOST_URL } from '../config/endpoints'
 
 const VaccinationForm = () => {
   const [firstname, setFirstName] = useState('Ali')
@@ -43,7 +44,7 @@ const VaccinationForm = () => {
       // alert('Please fill all fields')
     }
     else {
-      fetch(`/connections/create-invitation`,
+      fetch(ISSUER_HOST_URL + `/connections/create-invitation`,
         {
           method: 'POST',
           headers: {
