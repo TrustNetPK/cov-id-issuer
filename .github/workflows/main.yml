@@ -3,7 +3,7 @@ name: CI Pipleline For Issuer
 on: 
   push:
     branches:    
-      - deploy 
+      - master 
 
 jobs:
    build-and-deploy:

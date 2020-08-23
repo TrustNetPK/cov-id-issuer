@@ -1,1 +1,1 @@
-export const ISSUER_HOST_URL = 'http://localhost:3000';
+export const ISSUER_HOST_URL = process.env.ISSUER_HOST_URL;
