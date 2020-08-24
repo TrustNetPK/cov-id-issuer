@@ -87,7 +87,7 @@ const VaccinationForm = () => {
                     "name": "WeCare University Hospital",
                     "img": "https://vaccify.s3.ap-south-1.amazonaws.com/images/wecare-mini-transparent.png"
                   },
-                  invitation: data['invitation']
+                  invitation: data
                 }
               )
           )
