@@ -50,6 +50,7 @@ const VaccinationForm = () => {
           headers: {
             'X-API-Key': `${GET_API_SECRET()}`,
             'Content-Type': 'application/json; charset=utf-8',
+            'Access-Control-Allow-Origin': '*',
             'Server': 'Python/3.6 aiohttp/3.6.2'
           }
         }).then((
