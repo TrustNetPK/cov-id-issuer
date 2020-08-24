@@ -54,36 +54,36 @@ export default function ProofForm(props) {
           <Input type="text" name="gender" id="gender" value={gender} disabled />
         </Col>
       </FormGroup>
-      <FormGroup row>
+      {/* <FormGroup row>
         <Label for="dob" sm={4}>
           Date of Birth
         </Label>
         <Col sm={10}>
           <Input type="text" name="dob" id="dob" value={dob} disabled />
         </Col>
-      </FormGroup>
-      <FormGroup row>
+      </FormGroup> */}
+      {/* <FormGroup row>
         <Label for="nationality" sm={3}>
           Nationality
         </Label>
         <Col sm={10}>
           <Input type="text" name="nationality" id="nationality" value={nationality} disabled />
         </Col>
-      </FormGroup>
-      <FormGroup row>
+      </FormGroup> */}
+      {/* <FormGroup row>
         <Label for="doctype" sm={3}>
           Document
         </Label>
         <Col sm={10}>
           <Input type="text" name="doctype" id="doctype" value={doctype} disabled />
         </Col>
-      </FormGroup>
+      </FormGroup> */}
       <FormGroup row>
         <Label for="docID" sm={4}>
-          Document No.
+          Travel Document
         </Label>
         <Col sm={10}>
-          <Input type="text" name="docID" id="docID" value={docID} disabled />
+          <Input type="text" name="docID" id="docID" value={doctype + ': ' + docID} disabled />
         </Col>
       </FormGroup>
 
@@ -106,7 +106,7 @@ export default function ProofForm(props) {
       </FormGroup>
 
 
-      <FormGroup row>
+      {/* <FormGroup row>
         <Label for="dose" sm={3}>
           Dose
         </Label>
@@ -123,7 +123,7 @@ export default function ProofForm(props) {
         <Col sm={10}>
           <Input type="text" name="vaccinatorName" id="vaccinatorName" value={vaccinatorName} disabled />
         </Col>
-      </FormGroup>
+      </FormGroup> */}
 
 
 
@@ -138,14 +138,14 @@ export default function ProofForm(props) {
       </FormGroup>
 
 
-      <FormGroup row>
+      {/* <FormGroup row>
         <Label for="nextBoosterDate" sm={5}>
           Next Booster Date
         </Label>
         <Col sm={10}>
           <Input type="text" name="nextBoosterDate" id="nextBoosterDate" value={nextBoosterDate} disabled />
         </Col>
-      </FormGroup>
+      </FormGroup> */}
       <br />
     </Col>
   );

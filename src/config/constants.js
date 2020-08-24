@@ -19,3 +19,6 @@ export function GET_PASSCODE() {
     let PASSCODE = process.env.REACT_APP_PASSCODE;
     return PASSCODE
 }
+
+
+export var PROXY_URL = 'https://cors-anywhere.herokuapp.com/'

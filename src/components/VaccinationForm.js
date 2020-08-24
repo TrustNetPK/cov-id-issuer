@@ -3,7 +3,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, Mo
 import { useHistory } from 'react-router-dom'
 import randomString from '../helpers/RandomString'
 import '../assets/styles/VaccinationForm.css'
-import { GET_API_SECRET } from '../config/constants'
+import { PROXY_URL, GET_API_SECRET } from '../config/constants'
 import { GET_ISSUER_HOST_URL } from '../config/endpoints'
 
 const VaccinationForm = () => {
@@ -44,14 +44,13 @@ const VaccinationForm = () => {
       // alert('Please fill all fields')
     }
     else {
-      var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-      fetch(proxyUrl+GET_ISSUER_HOST_URL() + `/connections/create-invitation`,
+
+      fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/connections/create-invitation`,
         {
           method: 'POST',
           headers: {
             'X-API-Key': `${GET_API_SECRET()}`,
             'Content-Type': 'application/json; charset=utf-8',
-            'Access-Control-Allow-Origin': '*',
             'Server': 'Python/3.6 aiohttp/3.6.2'
           }
         }).then((
