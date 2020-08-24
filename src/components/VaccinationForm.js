@@ -3,8 +3,8 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, Mo
 import { useHistory } from 'react-router-dom'
 import randomString from '../helpers/RandomString'
 import '../assets/styles/VaccinationForm.css'
-import { API_SECRET } from '../config/constants'
-import { ISSUER_HOST_URL } from '../config/endpoints'
+import { GET_API_SECRET } from '../config/constants'
+import { GET_ISSUER_HOST_URL } from '../config/endpoints'
 
 const VaccinationForm = () => {
   const [firstname, setFirstName] = useState('Ali')
@@ -44,11 +44,11 @@ const VaccinationForm = () => {
       // alert('Please fill all fields')
     }
     else {
-      fetch(ISSUER_HOST_URL + `/connections/create-invitation`,
+      fetch(GET_ISSUER_HOST_URL() + `/connections/create-invitation`,
         {
           method: 'POST',
           headers: {
-            'X-API-Key': `${API_SECRET}`,
+            'X-API-Key': `${GET_API_SECRET()}`,
             'Content-Type': 'application/json; charset=utf-8',
             'Server': 'Python/3.6 aiohttp/3.6.2'
           }
