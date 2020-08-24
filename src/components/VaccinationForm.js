@@ -56,31 +56,40 @@ const VaccinationForm = () => {
         }).then((
           resp => resp.json().then((
             data =>
-              history.push('/qrcode', {
-                firstname: firstname,
-                lastname: lastname,
-                gender: gender,
-                dob: dob,
-                data: data,
-                nationality: nationality,
-                doctype: doctype,
-                docID: docID,
-                vacName: vacName,
-                manufacturer: manufacturer,
-                batch: batch,
-                dose: dose,
-                unit: unit,
-                validTill: validTill,
-                nextBoosterDate: nextBoosterDate,
-                vaccinatorName: vaccinatorName,
-                accreditor_cred_def_id: "(none)",
-                vaccinator_org_logo: "BASE_URL/logo.png",
-                vaccinator_org_type: "Hospital",
-                vaccinator_org_loc: "Lahore, Pakistan",
-                vaccinator_did: "(none)",
-                vaccinator_org: "WeCare University Hospital",
-                validate_from: new Date().toISOString().substring(0, 10),
-              })
+              history.push('/qrcode',
+                {
+                  type: "connection_credential",
+                  data: {
+                    firstname: firstname,
+                    lastname: lastname,
+                    gender: gender,
+                    dob: dob,
+                    nationality: nationality,
+                    doctype: doctype,
+                    docID: docID,
+                    vacName: vacName,
+                    manufacturer: manufacturer,
+                    batch: batch,
+                    dose: dose,
+                    unit: unit,
+                    validTill: validTill,
+                    nextBoosterDate: nextBoosterDate,
+                    vaccinatorName: vaccinatorName,
+                    accreditor_cred_def_id: "(none)",
+                    vaccinator_org_logo: "https://vaccify.s3.ap-south-1.amazonaws.com/images/wecare-mini-transparent.png",
+                    vaccinator_org_type: "Hospital",
+                    vaccinator_org_loc: "Lahore, Pakistan",
+                    vaccinator_did: "(none)",
+                    vaccinator_org: "WeCare University Hospital",
+                    validate_from: new Date().toISOString().substring(0, 10),
+                  },
+                  org: {
+                    "name": "WeCare University Hospital",
+                    "img": "https://vaccify.s3.ap-south-1.amazonaws.com/images/wecare-mini-transparent.png"
+                  },
+                  invitation: data['invitation']
+                }
+              )
           )
           )
         )
