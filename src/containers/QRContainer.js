@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spinner } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
-import { SCHEMA_ID, API_SECRET } from '../config/constants'
-import { ISSUER_HOST_URL } from '../config/endpoints'
+import { GET_SCHEMA_ID, GET_API_SECRET } from '../config/constants'
+import { GET_ISSUER_HOST_URL } from '../config/endpoints'
 
 function QRContainer(props) {
 	console.log(props.location, 'Props')
@@ -15,11 +15,11 @@ function QRContainer(props) {
 	useEffect(() => getConnectionInfo(), []);
 
 	function getConnectionInfo() {
-		fetch(ISSUER_HOST_URL + `/connections/${props.location.state.data.connection_id}`,
+		fetch(GET_ISSUER_HOST_URL() + `/connections/${props.location.state.data.connection_id}`,
 			{
 				method: 'GET',
 				headers: {
-					'X-API-Key': `${API_SECRET}`,
+					'X-API-Key': `${GET_API_SECRET()}`,
 					'Content-Type': 'application/json; charset=utf-8',
 					'Server': 'Python/3.6 aiohttp/3.6.2'
 				}
@@ -37,24 +37,24 @@ function QRContainer(props) {
 	}
 
 	function getCredDefId() {
-		fetch(ISSUER_HOST_URL + `/credential-definitions`,
+		fetch(GET_ISSUER_HOST_URL() + `/credential-definitions`,
 			{
 				method: 'POST',
 				headers: {
-					'X-API-Key': `${API_SECRET}`,
+					'X-API-Key': `${GET_API_SECRET()}`,
 					'Content-Type': 'application/json; charset=utf-8',
 					'Server': 'Python/3.6 aiohttp/3.6.2'
 				},
 				body: JSON.stringify({
 					"support_revocation": false,
 					"tag": props.location.state.docID,
-					"schema_id": `${SCHEMA_ID}`,
+					"schema_id": `${GET_SCHEMA_ID()}`,
 				})
 			}).then(resp => resp.json().then((data => issueCredential(data.credential_definition_id))))
 	}
 
 	function issueCredential(credential_definition_id) {
-		fetch(ISSUER_HOST_URL + `/issue-credential/send`,
+		fetch(GET_ISSUER_HOST_URL() + `/issue-credential/send`,
 			{
 				method: 'POST',
 				body: JSON.stringify({
@@ -159,7 +159,7 @@ function QRContainer(props) {
 					}
 				}),
 				headers: {
-					'X-API-Key': `${API_SECRET}`,
+					'X-API-Key': `${GET_API_SECRET()}`,
 					'Content-Type': 'application/json; charset=utf-8',
 					'Server': 'Python/3.6 aiohttp/3.6.2'
 				}
