@@ -44,7 +44,8 @@ const VaccinationForm = () => {
       // alert('Please fill all fields')
     }
     else {
-      fetch(GET_ISSUER_HOST_URL() + `/connections/create-invitation`,
+      var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+      fetch(proxyUrl+GET_ISSUER_HOST_URL() + `/connections/create-invitation`,
         {
           method: 'POST',
           headers: {
