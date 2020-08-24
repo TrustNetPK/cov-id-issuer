@@ -34,9 +34,9 @@ const HeaderComponent = () => {
     <Navbar color="light" light expand="sm" fixed="top" style={globalStyles.navbar}>
       <NavbarBrand className="navbar-brand">
         {width > 500 ? (
-          <img src={WeCareLogo} alt="wecare-logo" style={globalStyles.navbarLogo} />
+          <a href="http://issuer.trustnetpk.com"> <img src={WeCareLogo} alt="wecare-logo" style={globalStyles.navbarLogo} /></a>
         ) : (
-            <img src={WeCareMiniLogo} alt="wecare-logo" style={globalStyles.navbarLogoMini} />
+            <a href="http://issuer.trustnetpk.com"><img src={WeCareMiniLogo} alt="wecare-logo" style={globalStyles.navbarLogoMini} /></a>
           )}
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
