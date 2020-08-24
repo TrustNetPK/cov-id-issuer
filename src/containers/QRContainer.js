@@ -15,7 +15,7 @@ function QRContainer(props) {
 	useEffect(() => getConnectionInfo(), []);
 
 	function getConnectionInfo() {
-		fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/connections/${props.location.state.data.connection_id}`,
+		fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/connections/${props.location.state.invitation.connection_id}`,
 			{
 				method: 'GET',
 				headers: {
@@ -47,7 +47,7 @@ function QRContainer(props) {
 				},
 				body: JSON.stringify({
 					"support_revocation": false,
-					"tag": props.location.state.docID,
+					"tag": props.location.state.data.docID,
 					"schema_id": `${GET_SCHEMA_ID()}`,
 				})
 			}).then(resp => resp.json().then((data => issueCredential(data.credential_definition_id))))
@@ -58,7 +58,7 @@ function QRContainer(props) {
 			{
 				method: 'POST',
 				body: JSON.stringify({
-					"connection_id": props.location.state.data.connection_id,
+					"connection_id": props.location.state.invitation.connection_id,
 					"cred_def_id": `${credential_definition_id}`,
 					"credential_proposal": {
 						"@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/1.0/credential-preview",
@@ -69,91 +69,91 @@ function QRContainer(props) {
 							},
 							{
 								"name": "vaccine_name",
-								"value": props.location.state.vacName
+								"value": props.location.state.data.vacName
 							},
 							{
 								"name": "manufacturer",
-								"value": props.location.state.manufacturer
+								"value": props.location.state.data.manufacturer
 							},
 							{
 								"name": "batch_no",
-								"value": props.location.state.batch
+								"value": props.location.state.data.batch
 							},
 							{
 								"name": "dose",
-								"value": props.location.state.dose
+								"value": props.location.state.data.dose
 							},
 							{
 								"name": "dose_unit",
-								"value": props.location.state.unit
+								"value": props.location.state.data.unit
 							},
 							{
 								"name": "validate_from",
-								"value": props.location.state.validate_from
+								"value": props.location.state.data.validate_from
 							},
 							{
 								"name": "validate_to",
-								"value": props.location.state.validTill
+								"value": props.location.state.data.validTill
 							},
 							{
 								"name": "next_booster_date",
-								"value": props.location.state.nextBoosterDate
+								"value": props.location.state.data.nextBoosterDate
 							},
 							{
 								"name": "vaccinator_org",
-								"value": props.location.state.vaccinator_org
+								"value": props.location.state.data.vaccinator_org
 							},
 							{
 								"name": "vaccinator_did",
-								"value": props.location.state.vaccinator_did
+								"value": props.location.state.data.vaccinator_did
 							},
 							{
 								"name": "vaccinator_name",
-								"value": props.location.state.vaccinatorName
+								"value": props.location.state.data.vaccinatorName
 							},
 							{
 								"name": "vaccinator_org_loc",
-								"value": props.location.state.vaccinator_org_loc
+								"value": props.location.state.data.vaccinator_org_loc
 							},
 							{
 								"name": "vaccinator_org_type",
-								"value": props.location.state.vaccinator_org_type
+								"value": props.location.state.data.vaccinator_org_type
 							},
 							{
 								"name": "vaccinator_org_logo",
-								"value": props.location.state.vaccinator_org_logo
+								"value": props.location.state.data.vaccinator_org_logo
 							},
 							{
 								"name": "first_name",
-								"value": props.location.state.firstname
+								"value": props.location.state.data.firstname
 							},
 							{
 								"name": "last_name",
-								"value": props.location.state.lastname
+								"value": props.location.state.data.lastname
 							},
 							{
 								"name": "dob",
-								"value": props.location.state.dob
+								"value": props.location.state.data.dob
 							},
 							{
 								"name": "nationality",
-								"value": props.location.state.nationality
+								"value": props.location.state.data.nationality
 							},
 							{
 								"name": "gender",
-								"value": props.location.state.gender
+								"value": props.location.state.data.gender
 							},
 							{
 								"name": "accreditor_cred_def_id",
-								"value": props.location.state.accreditor_cred_def_id
+								"value": props.location.state.data.accreditor_cred_def_id
 							},
 							{
 								"name": "id_doc_type",
-								"value": props.location.state.doctype
+								"value": props.location.state.data.doctype
 							},
 							{
 								"name": "doc_id",
-								"value": props.location.state.docID
+								"value": props.location.state.data.docID
 							}
 						]
 					}
