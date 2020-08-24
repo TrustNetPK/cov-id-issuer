@@ -5,6 +5,7 @@ import '../assets/styles/LoginContainer.css'
 
 import animic1 from '../assets/images/icons/anim-icon-1.png';
 import animic2 from '../assets/images/icons/anim-icon-2.png';
+import { GET_PASSCODE } from '../config/constants'
 
 function LoginContainer(props) {
 	const [email, setEmail] = useState('')
@@ -15,8 +16,8 @@ function LoginContainer(props) {
 	const toggle = () => setModal(!modal);
 
 	const handleSubmit = () => {
-		console.log(email, password)
-		if (email === 'issuer@vaccify.pk' && password === 'admin') {
+		let pass = GET_PASSCODE()
+		if (email === 'issuer@vaccify.pk' && password === pass) {
 			Auth.authenticate();
 			props.history.replace('/vaccination')
 		}
