@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
 
 export default function ProofForm(props) {
-
   const { firstname,
     lastname,
     gender,
@@ -25,7 +24,7 @@ export default function ProofForm(props) {
     vaccinator_did,
     vaccinator_org,
     validate_from,
-  } = props.data
+  } = props.data.data
 
   return (
     <Col lg={5}>
