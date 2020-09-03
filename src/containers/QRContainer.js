@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spinner } from 'reactstrap'
+import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, CardColumns } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
 import { PROXY_URL, GET_SCHEMA_ID, GET_API_SECRET, GET_CRED_ID } from '../config/constants'
 import { GET_ISSUER_HOST_URL } from '../config/endpoints'
+import { fetchWithTimeout } from '../helpers/fetchWithTimeout'
 
 function QRContainer(props) {
 	console.log(props.location, 'Props')
@@ -16,9 +17,7 @@ function QRContainer(props) {
 
 	function getConnectionInfo() {
 		try {
-
-
-			fetch(`/connections/${props.location.state.invitation.connection_id}`,
+			fetchWithTimeout(`/connections/${props.location.state.invitation.connection_id}`,
 				{
 					method: 'GET',
 					headers: {
@@ -26,18 +25,28 @@ function QRContainer(props) {
 						'Content-Type': 'application/json; charset=utf-8',
 						'Server': 'Python/3.6 aiohttp/3.6.2'
 					}
-				}, 5000).then((
-					resp => resp.json().then((data => {
-						if (data.state) {
-							let intervalFunction;
-							// console.log(data.state === 'invitation', 'Data')
-							data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, 5000) : clearIntervalFunction(intervalFunction);
-						} else {
-							console.log('Pending result!');
+				}, 3000).then((
+					resp => {
+						try {
+							resp.json().then((data => {
+								if (data.state) {
+									let intervalFunction;
+									// console.log(data.state === 'invitation', 'Data')
+									data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, 5000) : clearIntervalFunction(intervalFunction);
+								} else {
+									console.log('Pending result!');
+									setTimeout(getConnectionInfo, 5000)
+								}
+							}))
+						} catch (error) {
+							setTimeout(getConnectionInfo, 5000)
 						}
-					}))))
+					}
+				))
 		} catch (error) {
+			console.log('hello')
 			console.log(error);
+			setTimeout(getConnectionInfo, 5000)
 		}
 	}
 
