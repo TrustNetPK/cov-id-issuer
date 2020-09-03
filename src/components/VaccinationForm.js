@@ -45,7 +45,7 @@ const VaccinationForm = () => {
     }
     else {
 
-      fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/connections/create-invitation`,
+      fetch(`/connections/create-invitation`,
         {
           method: 'POST',
           headers: {
