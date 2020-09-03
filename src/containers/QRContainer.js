@@ -15,7 +15,7 @@ function QRContainer(props) {
 	useEffect(() => getConnectionInfo(), []);
 
 	function getConnectionInfo() {
-		fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/connections/${props.location.state.invitation.connection_id}`,
+		fetch(`/connections/${props.location.state.invitation.connection_id}`,
 			{
 				method: 'GET',
 				headers: {
@@ -37,7 +37,7 @@ function QRContainer(props) {
 	}
 
 	function getCredDefId() {
-		fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/credential-definitions`,
+		fetch(`/credential-definitions`,
 			{
 				method: 'POST',
 				headers: {
@@ -54,7 +54,7 @@ function QRContainer(props) {
 	}
 
 	function issueCredential(credential_definition_id) {
-		fetch(PROXY_URL + GET_ISSUER_HOST_URL() + `/issue-credential/send`,
+		fetch(`/issue-credential/send`,
 			{
 				method: 'POST',
 				body: JSON.stringify({
