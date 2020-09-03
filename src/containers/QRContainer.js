@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Button, Col, Modal, ModalHeader, ModalBody, ModalFooter, Spinner } from 'reactstrap'
 import QRComponent from '../components/QRComponent'
 import '../assets/styles/LoginContainer.css'
-import { PROXY_URL, GET_SCHEMA_ID, GET_API_SECRET } from '../config/constants'
+import { PROXY_URL, GET_SCHEMA_ID, GET_API_SECRET, GET_CRED_ID } from '../config/constants'
 import { GET_ISSUER_HOST_URL } from '../config/endpoints'
 
 function QRContainer(props) {
@@ -15,20 +15,30 @@ function QRContainer(props) {
 	useEffect(() => getConnectionInfo(), []);
 
 	function getConnectionInfo() {
-		fetch(`/connections/${props.location.state.invitation.connection_id}`,
-			{
-				method: 'GET',
-				headers: {
-					'X-API-Key': `${GET_API_SECRET()}`,
-					'Content-Type': 'application/json; charset=utf-8',
-					'Server': 'Python/3.6 aiohttp/3.6.2'
-				}
-			}).then((
-				resp => resp.json().then((data => {
-					let intervalFunction;
-					console.log(data.state === 'invitation', 'Data')
-					data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, 5000) : clearIntervalFunction(intervalFunction);
-				}))))
+		try {
+
+
+			fetch(`/connections/${props.location.state.invitation.connection_id}`,
+				{
+					method: 'GET',
+					headers: {
+						'X-API-Key': `${GET_API_SECRET()}`,
+						'Content-Type': 'application/json; charset=utf-8',
+						'Server': 'Python/3.6 aiohttp/3.6.2'
+					}
+				}, 5000).then((
+					resp => resp.json().then((data => {
+						if (data.state) {
+							let intervalFunction;
+							// console.log(data.state === 'invitation', 'Data')
+							data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, 5000) : clearIntervalFunction(intervalFunction);
+						} else {
+							console.log('Pending result!');
+						}
+					}))))
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	function clearIntervalFunction(intervalFunction) {
@@ -37,20 +47,21 @@ function QRContainer(props) {
 	}
 
 	function getCredDefId() {
-		fetch(`/credential-definitions`,
-			{
-				method: 'POST',
-				headers: {
-					'X-API-Key': `${GET_API_SECRET()}`,
-					'Content-Type': 'application/json; charset=utf-8',
-					'Server': 'Python/3.6 aiohttp/3.6.2'
-				},
-				body: JSON.stringify({
-					"support_revocation": false,
-					"tag": props.location.state.data.docID,
-					"schema_id": `${GET_SCHEMA_ID()}`,
-				})
-			}).then(resp => resp.json().then((data => issueCredential(data.credential_definition_id))))
+		// fetch(`/credential-definitions`,
+		// 	{
+		// 		method: 'POST',
+		// 		headers: {
+		// 			'X-API-Key': `${GET_API_SECRET()}`,
+		// 			'Content-Type': 'application/json; charset=utf-8',
+		// 			'Server': 'Python/3.6 aiohttp/3.6.2'
+		// 		},
+		// 		body: JSON.stringify({
+		// 			"support_revocation": false,
+		// 			"tag": props.location.state.data.docID,
+		// 			"schema_id": `${GET_SCHEMA_ID()}`,
+		// 		})
+		// 	}).then(resp => resp.json().then((data => issueCredential(data.credential_definition_id))))
+		issueCredential(GET_CRED_ID());
 	}
 
 	function issueCredential(credential_definition_id) {
