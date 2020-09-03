@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const PORT = process.env.PORT || 5000;
-const HOST_URL = process.env.REACT_APP_ISSUER_HOST_URL || 'http://issueragent.trustnetpk.com:2052';
+const HOST_URL = process.env.REACT_APP_ISSUER_HOST_URL || 'http://localhost:3000';
 
 app.use(express.static(path.join(__dirname, 'build')));
 
