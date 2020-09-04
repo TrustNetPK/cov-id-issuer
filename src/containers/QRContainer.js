@@ -128,7 +128,7 @@ function QRContainer(props) {
 								"value": props.location.state.data.vaccinator_did
 							},
 							{
-								"name": "vaccinator_name",
+								"name": "vaccinatorName",
 								"value": props.location.state.data.vaccinatorName
 							},
 							{
