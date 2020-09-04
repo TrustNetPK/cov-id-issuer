@@ -13,7 +13,7 @@ const VaccinationForm = () => {
   const [dob, setDob] = useState('1990-02-21')
   const [nationality, setNationality] = useState('Pakistani')
   const [doctype, setDocType] = useState('Passport')
-  const [docID, setDocID] = useState('CV-' + randomString(8).toUpperCase())
+  const [doc_id, setDocID] = useState('CV-' + randomString(8).toUpperCase())
 
   const [vacName, setVacName] = useState('SARS-CoV2')
   const [manufacturer, setManufacturer] = useState('Moderna')
@@ -35,7 +35,7 @@ const VaccinationForm = () => {
       dob === '' |
       nationality === '' |
       doctype === '' |
-      docID === '' | dose === '' | batch === '' | validTill === '' | vacName === '' |
+      doc_id === '' | dose === '' | batch === '' | validTill === '' | vacName === '' |
       manufacturer === '' |
       unit === '' |
       nextBoosterDate === '' |
@@ -66,7 +66,7 @@ const VaccinationForm = () => {
                     dob: dob,
                     nationality: nationality,
                     doctype: doctype,
-                    docID: docID,
+                    doc_id: doc_id,
                     vacName: vacName,
                     manufacturer: manufacturer,
                     batch: batch,
@@ -142,7 +142,7 @@ const VaccinationForm = () => {
         <Col md={4}>
           <FormGroup>
             <Label for="docid">Travel Document ID</Label>
-            <Input type="text" className="inputField rounded-pill" name="docid" id="docid" onChange={(e) => setDocID(e.target.value)} placeholder="CV123456789" value={docID} />
+            <Input type="text" className="inputField rounded-pill" name="docid" id="docid" onChange={(e) => setDocID(e.target.value)} placeholder="CV123456789" value={doc_id} />
           </FormGroup>
         </Col>
       </Row>

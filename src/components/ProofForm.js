@@ -8,7 +8,7 @@ export default function ProofForm(props) {
     dob,
     nationality,
     doctype,
-    docID,
+    doc_id,
     vacName,
     manufacturer,
     batch,
@@ -78,11 +78,11 @@ export default function ProofForm(props) {
         </Col>
       </FormGroup> */}
       <FormGroup row>
-        <Label for="docID" sm={4}>
+        <Label for="doc_id" sm={4}>
           Travel Document
         </Label>
         <Col sm={10}>
-          <Input type="text" name="docID" id="docID" value={doctype + ': ' + docID} disabled />
+          <Input type="text" name="doc_id" id="doc_id" value={doctype + ': ' + doc_id} disabled />
         </Col>
       </FormGroup>
 
