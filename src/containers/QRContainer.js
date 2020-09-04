@@ -66,7 +66,7 @@ function QRContainer(props) {
 		// 		},
 		// 		body: JSON.stringify({
 		// 			"support_revocation": false,
-		// 			"tag": props.location.state.data.docID,
+		// 			"tag": props.location.state.data.doc_id,
 		// 			"schema_id": `${GET_SCHEMA_ID()}`,
 		// 		})
 		// 	}).then(resp => resp.json().then((data => issueCredential(data.credential_definition_id))))
@@ -172,8 +172,8 @@ function QRContainer(props) {
 								"value": props.location.state.data.doctype
 							},
 							{
-								"name": "docID",
-								"value": props.location.state.data.docID
+								"name": "doc_id",
+								"value": props.location.state.data.doc_id
 							}
 						]
 					}
