@@ -88,7 +88,7 @@ function QRContainer(props) {
 								"value": "vaccify_demo"
 							},
 							{
-								"name": "vaccine_name",
+								"name": "vacName",
 								"value": props.location.state.data.vacName
 							},
 							{
@@ -96,7 +96,7 @@ function QRContainer(props) {
 								"value": props.location.state.data.manufacturer
 							},
 							{
-								"name": "batch_no",
+								"name": "batch",
 								"value": props.location.state.data.batch
 							},
 							{
@@ -104,7 +104,7 @@ function QRContainer(props) {
 								"value": props.location.state.data.dose
 							},
 							{
-								"name": "dose_unit",
+								"name": "unit",
 								"value": props.location.state.data.unit
 							},
 							{
@@ -112,11 +112,11 @@ function QRContainer(props) {
 								"value": props.location.state.data.validate_from
 							},
 							{
-								"name": "validate_to",
+								"name": "validTill",
 								"value": props.location.state.data.validTill
 							},
 							{
-								"name": "next_booster_date",
+								"name": "nextBoosterDate",
 								"value": props.location.state.data.nextBoosterDate
 							},
 							{
@@ -144,11 +144,11 @@ function QRContainer(props) {
 								"value": props.location.state.data.vaccinator_org_logo
 							},
 							{
-								"name": "first_name",
+								"name": "firstname",
 								"value": props.location.state.data.firstname
 							},
 							{
-								"name": "last_name",
+								"name": "lastname",
 								"value": props.location.state.data.lastname
 							},
 							{
@@ -168,11 +168,11 @@ function QRContainer(props) {
 								"value": props.location.state.data.accreditor_cred_def_id
 							},
 							{
-								"name": "id_doc_type",
+								"name": "doctype",
 								"value": props.location.state.data.doctype
 							},
 							{
-								"name": "doc_id",
+								"name": "docID",
 								"value": props.location.state.data.docID
 							}
 						]
